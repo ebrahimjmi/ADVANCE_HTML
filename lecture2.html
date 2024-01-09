@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .parent {
+        width: 400px;
+        height: 400px;
+        border: 2px solid #000;
+        position: relative;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        position: absolute;
+      }
+
+      .box1 {
+        background: cyan;
+        left: 100px;
+        top: 100px;
+      }
+
+      .box2 {
+        background: purple;
+        right: 100px;
+        top: 100px;
+      }
+
+      .box3 {
+        background: pink;
+        left: 100px;
+        bottom: 100px;
+
+      }
+
+      .box4 {
+        background: gray;
+        right: 100px;
+        bottom: 100px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        // $('.box1').click(function() {
+        //   $(this).animate({
+        //     top: 0,
+        //     left: 0
+        //   })
+        // })
+        // $('.box2').click(function() {
+        //   $(this).animate({
+        //     top: 0,
+        //     right: 0
+        //   })
+        // })
+        // $('.box3').click(function() {
+        //   $(this).animate({
+        //     bottom: 0,
+        //     left: 0
+        //   })
+        // })
+        // $('.box4').click(function() {
+        //   $(this).animate({
+        //     bottom: 0,
+        //     right: 0
+        //   })
+        // })
+
+
+        // optimization
+        $('.box').click(function () {
+          // console.log($(this).attr('top-bottom'))
+          $(this).toggleClass('active');
+          var topBottom = $(this).attr('top-bottom');
+          var letRight = $(this).attr('left-right');
+          console.log(topBottom, letRight)
+          if ($(this).hasClass('active')) {
+            $(this).animate({
+              [topBottom]: 0,
+              [letRight]: 0,
+            })
+          } else {
+            $(this).animate({
+              [topBottom]: '100px',
+              [letRight]: '100px'
+            })
+          } 
+
+        })
+      })
+    </script>
+  </head>
+
+  <body>
+    <div class="parent">
+      <div class="box box1" top-bottom="top" left-right="left"></div>
+      <div class="box box2" top-bottom="top" left-right="right"></div>
+      <div class="box box3" top-bottom="bottom" left-right="left"></div>
+      <div class="box box4" top-bottom="bottom" left-right="right"></div>
+    </div>
+  </body>
+
+</html>
