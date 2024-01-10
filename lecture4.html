@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Form Validation</title>
+  <style>
+    input:invalid {
+      border: 2px solid red;
+    }
+    input:valid {
+      border: 2px solid rgb(53, 216, 53);
+    }
+  </style>
+</head>
+<body>
+    <form action="">
+      <div>
+        <strong for="">choose your user name</strong><br>
+        <input type="text" name="" id="" placeholder="enter only alphabet" pattern="[a-zA-Z]{5,15}" title="Only allow alphabet, min 5 and max 15 char" />
+      </div>
+      <div>
+        <strong>Enter your zipcode</strong><br>
+        <input type="text" name="" id="" placeholder="Allow exactly 5 digit" pattern="[0-9]{5}" title="only allow exact 5 digit" />
+      </div>
+      <button type="submit">submit</button>
+    </form>
+</body>
+</html>
