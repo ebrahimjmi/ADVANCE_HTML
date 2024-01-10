@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      .conatiner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .accordian {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .accordian ul li {
+        list-style-type: none;
+      }
+
+      ul {
+        padding: 0;
+      }
+      .tabcontent {
+        display: none;
+      }
+      .tabcontent.active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="accordian">
+        <ul>
+          <li>
+            <a href="">FAQ 1</a>
+            <div class="tabcontent active">
+              <h3>Section 1</h3>
+              <p>What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book it has?</p>
+            </div>
+          </li>
+          <li>
+            <a href="">FAQ 2</a>
+            <div class="tabcontent">
+              <h3>Section 2</h3>
+              <p>What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book it has?</p>
+            </div>
+          </li>
+          <li>
+            <a href="">FAQ 3</a>
+            <div class="tabcontent">
+              <h3>Section 3</h3>
+              <p>What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book it has?</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('.accordian ul li a').click(function() {
+          console.log('hello')
+          $(this).siblings('.tabcontent').slideToggle();
+          $(this).closest('li').siblings('li').find('.tabcontent').slideUp();
+          return false
+        })
+      })
+    </script>
+    
+  </body>
+
+</html>
